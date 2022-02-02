@@ -28,7 +28,7 @@ public class ParseService {
 
     public void parse(String path) {
 
-        List<Customer> list = new ArrayList<Customer>();
+        List<Customer> list = new ArrayList<>();
 
         try {
 
@@ -62,9 +62,6 @@ public class ParseService {
         log.info("Конец парсинга");
         log.info("Запись в базу данных");
 
-
         repo.saveAll(list);
-
-
     }
 }

@@ -8,20 +8,19 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @Builder
-@Entity
-@Table
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "customer")
 public class Customer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Long subjId;
     private String s;
 
@@ -32,5 +31,4 @@ public class Customer {
     private boolean isProcessing;
     private String stType;
     private String mbType;
-
 }
