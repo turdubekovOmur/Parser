@@ -21,12 +21,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long subjId;
-    private String s;
-
     @DateTimeFormat(pattern = "dd/M/yyyy hh:mm:ss")
     private Date dateOfCreation;
 
+    private Long subjId;
+    private String s;
     private boolean isUpdated;
     private boolean isProcessing;
     private String stType;

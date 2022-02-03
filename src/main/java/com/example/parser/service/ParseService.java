@@ -2,6 +2,7 @@ package com.example.parser.service;
 
 import com.example.parser.model.Customer;
 import com.example.parser.repository.CustomerRepo;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
@@ -19,11 +20,10 @@ import java.util.List;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class ParseService {
 
-
-    @Autowired
-    private CustomerRepo repo;
+    private final CustomerRepo repo;
 
 
     public void parse(String path) {
@@ -51,6 +51,7 @@ public class ParseService {
                         .s(s)
                         .dateOfCreation(date)
                         .build();
+
                 list.add(customer);
             }
 
