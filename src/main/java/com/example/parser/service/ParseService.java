@@ -25,13 +25,11 @@ public class ParseService {
 
     private final CustomerRepo repo;
 
-
     public void parse(String path) {
 
         List<Customer> list = new ArrayList<>();
 
         try {
-
             File file = new File(path);
             Workbook workbook = new XSSFWorkbook(file);
             Sheet worksheet = workbook.getSheetAt(0);
@@ -39,7 +37,6 @@ public class ParseService {
             log.info("Начало парсинга");
 
             for (int i = 1; i < worksheet.getPhysicalNumberOfRows(); i++) {
-
                 Row row = worksheet.getRow(i);
 
                 String subjId = row.getCell(1).getStringCellValue();
@@ -51,15 +48,11 @@ public class ParseService {
                         .s(s)
                         .dateOfCreation(date)
                         .build();
-
                 list.add(customer);
             }
-
-
         } catch (IOException | InvalidFormatException e) {
-            e.printStackTrace();
+            log.error("Error : {}", e.getMessage());
         }
-
         log.info("Конец парсинга");
         log.info("Запись в базу данных");
 

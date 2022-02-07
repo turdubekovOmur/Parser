@@ -10,5 +10,6 @@ import java.util.List;
 public interface CustomerRepo extends JpaRepository<Customer, Long> {
 
     Customer getBySubjId(Long subjId);
-    List<Customer> getTop100ByIsUpdatedFalse();
+
+    List<Customer> getTop1000ByIsProcessingIsFalse();
 }
